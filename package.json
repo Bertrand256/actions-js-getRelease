@@ -1,6 +1,6 @@
 {
   "name": "gh-actions-get-release",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Get GitHub release upload url",
   "main": "dist/index.js",
   "scripts": {
@@ -8,8 +8,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.6",
-    "@actions/github": "^2.2.0",
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1",
     "@vercel/ncc": "^0.27.0"
   }
 }
