@@ -7,17 +7,15 @@ module.exports =
 
 const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
-const {GitHub} = __nccwpck_require__(3030);
-const context = github.context
 
 async function run() {
   try {
-    const github = new GitHub(process.env.GITHUB_TOKEN);
-    const { owner: owner, repo: repo } = context.repo;
+    const { owner: owner, repo: repo } = github.context.repo;
     const tag = core.getInput('tag', { required: true })
         .replace('refs/tags/', '');
+    const octokit = github.getOctokit(process.env.GITHUB_TOKEN)
 
-    const getReleaseResponse = await github.repos.getReleaseByTag({
+    const getReleaseResponse = await octokit.request('GET /repos/{owner}/{repo}/releases/tags/{tag}',{
       owner,
       repo,
       tag
