@@ -1,5 +1,7 @@
 const core = require('@actions/core');
-const { GitHub, context } = require('@actions/github');
+const github = require('@actions/github');
+const {GitHub} = require("@actions/github/lib/utils");
+const context = github.context
 
 async function run() {
   try {
