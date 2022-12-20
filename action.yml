@@ -10,5 +10,5 @@ outputs:
   not_found:
     description: 'set to true if release is not found'
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'
