@@ -18,7 +18,7 @@ async function run() {
       data: { upload_url: uploadUrl }
     } = getReleaseResponse;
 
-    core. setOutput('upload_url', uploadUrl);
+    // core.setOutput('upload_url', uploadUrl);
     core.info(`upload_url: ${uploadUrl}`);
   } catch (error) {
     core.info(`err: ${error.message}`);
