@@ -29,7 +29,7 @@ async function run() {
 
   } catch (error) {
     console.log(error);
-    core.setFailed(error.message);
+    // core.setFailed(error.message);
     core.info(`err: ${error.message}`);
   }
 }
