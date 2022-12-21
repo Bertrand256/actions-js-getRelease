@@ -10,6 +10,8 @@ async function run() {
     const tag = core.getInput('tag', { required: true })
         .replace('refs/tags/', '');
 
+    console.log(`Input tag: '${tag}'`);
+
     const getReleaseResponse = await octokit.rest.repos.getReleaseByTag({
       owner,
       repo,
