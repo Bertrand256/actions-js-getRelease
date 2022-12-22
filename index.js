@@ -10,8 +10,6 @@ async function run() {
     const tag = core.getInput('tag', { required: true })
         .replace('refs/tags/', '');
 
-    console.log(`Input tag: '${tag}'`);
-
     const getReleaseResponse = await octokit.rest.repos.getReleaseByTag({
       owner,
       repo,
@@ -24,12 +22,9 @@ async function run() {
 
     console.log(`Got release info: '${releaseId}', '${htmlUrl}', '${uploadUrl}', '${name}', '${draft}', '${prerelease}', '${body}', '${author}'`);
 
-    // Set the output variables for use by other actions: https://github.com/actions/toolkit/tree/master/packages/core#inputsoutputs
     core.setOutput("upload_url", uploadUrl);
-
   } catch (error) {
     console.log(error);
-    // core.setFailed(error.message);
     core.info(`err: ${error.message}`);
   }
 }
